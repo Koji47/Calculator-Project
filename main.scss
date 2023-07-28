@@ -1,4 +1,23 @@
 @import "./variables";
 @import "./keypad";
+@import "./nav";
+
+@import "./screen";
 
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap");
+
+* {
+  font-family: $primary-font;
+  padding: 0px;
+  margin: 0px;
+}
+
+a,
+ul,
+li {
+  all: unset;
+}
+
+body {
+  background-color: $tertiary-gray;
+}

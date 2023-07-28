@@ -7,6 +7,8 @@
     "four five six plus"
     "one two three equals"
     "zero dot triple equals";
+  width: 95vw;
+  margin: 3vw;
 
   #clear {
     grid-area: clear;
@@ -69,7 +71,6 @@
 // keypad styling
 .keypad {
   &__buttons {
-    font-family: $primary-font;
     font-size: 31px;
     background-color: $primary-gray;
     color: $white;
@@ -87,10 +88,15 @@
     transition: all 0.2s;
   }
 }
-
+//equals button to span 2 grids and fit the style of the keypad
 #equals {
   height: 160px;
-  width: 75px;
+  width: 70px;
   //found solution to stretch the button across 2 grids, 75% vertical 25% horizontal
   border-radius: 75%/25%;
 }
+
+// //shift keypad to the centre
+// body {
+//   margin-left: 3vw;
+// }

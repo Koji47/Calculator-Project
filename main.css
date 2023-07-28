@@ -3,6 +3,8 @@
 .keypad {
   display: grid;
   grid-template-areas: "clear divide multiply delete" "seven eight nine minus" "four five six plus" "one two three equals" "zero dot triple equals";
+  width: 95vw;
+  margin: 3vw;
 }
 .keypad #clear {
   grid-area: clear;
@@ -63,7 +65,6 @@
 }
 
 .keypad__buttons {
-  font-family: "Chakra Petch", sans-serif;
   font-size: 31px;
   background-color: #a4a4a4;
   color: #f2f2f2;
@@ -83,6 +84,66 @@
 
 #equals {
   height: 160px;
-  width: 75px;
+  width: 70px;
   border-radius: 75%/25%;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 35vw 50vw 10vw;
+  align-items: center;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+.navbar__calculator {
+  grid-column-start: 2;
+  font-size: 28px;
+}
+.navbar__lightdark #dark {
+  width: 50px;
+  grid-column-start: 3;
+  display: none;
+}
+.navbar__lightdark #light {
+  width: 50px;
+  grid-column-start: 3;
+}
+
+input {
+  text-align: right;
+  border: 0px;
+  outline: none;
+  background-color: #f2f2f2;
+  margin: 1rem;
+  font-size: 32px;
+  width: 80vw;
+}
+
+.screen {
+  display: flex;
+  align-items: last baseline;
+  justify-content: right;
+  background-color: #f2f2f2;
+  width: 90vw;
+  margin: 5vw;
+  height: 25vh;
+  border-radius: 5%/10%;
+  border: 0px;
+  outline: none;
+}
+
+* {
+  font-family: "Chakra Petch", sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+a,
+ul,
+li {
+  all: unset;
+}
+
+body {
+  background-color: #7f7f7f;
 }/*# sourceMappingURL=main.css.map */
