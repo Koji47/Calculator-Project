@@ -1,0 +1,96 @@
+// keypad grid layout
+.keypad {
+  display: grid;
+  grid-template-areas:
+    "clear divide multiply delete"
+    "seven eight nine minus"
+    "four five six plus"
+    "one two three equals"
+    "zero dot triple equals";
+
+  #clear {
+    grid-area: clear;
+  }
+  #divide {
+    grid-area: divide;
+  }
+  #multiply {
+    grid-area: multiply;
+  }
+  #delete {
+    grid-area: delete;
+  }
+  #minus {
+    grid-area: minus;
+  }
+  #plus {
+    grid-area: plus;
+  }
+  #equals {
+    grid-area: equals;
+  }
+  #nine {
+    grid-area: nine;
+  }
+  #eight {
+    grid-area: eight;
+  }
+  #seven {
+    grid-area: seven;
+  }
+  #six {
+    grid-area: six;
+  }
+  #five {
+    grid-area: five;
+  }
+  #four {
+    grid-area: four;
+  }
+  #three {
+    grid-area: three;
+  }
+  #two {
+    grid-area: two;
+  }
+  #one {
+    grid-area: one;
+  }
+  #zero {
+    grid-area: zero;
+  }
+  #triple {
+    grid-area: triple;
+  }
+  #dot {
+    grid-area: dot;
+  }
+}
+// keypad styling
+.keypad {
+  &__buttons {
+    font-family: $primary-font;
+    font-size: 31px;
+    background-color: $primary-gray;
+    color: $white;
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    height: 75px;
+    width: 75px;
+    box-shadow: 0 3px 10px $secondary-gray;
+    border-radius: 50%;
+  }
+  &__buttons:active {
+    box-shadow: 0 0 2px $secondary-gray;
+    transform: translateY(2px);
+    transition: all 0.2s;
+  }
+}
+
+#equals {
+  height: 160px;
+  width: 75px;
+  //found solution to stretch the button across 2 grids, 75% vertical 25% horizontal
+  border-radius: 75%/25%;
+}
