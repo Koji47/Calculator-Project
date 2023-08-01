@@ -83,11 +83,30 @@ const handleNumButton = (button: HTMLButtonElement) => {
   console.log(selectedNum);
 
   if (op === "") {
-    numOne += selectedNum;
+    // if numOne is empty and the selected number is "-"
+    if (numOne === "" && selectedNum === "-") {
+      // add the negative sign to the empty numOne
+      numOne += selectedNum;
+      op = "";
+    } else if (numOne !== "" || (numOne === "" && selectedNum !== "-")) {
+      numOne += selectedNum;
+    }
   } else {
-    numTwo += selectedNum;
+    // if numTwo is empty and the selected number is "-"
+    if (numTwo === "" && selectedNum === "-") {
+      // Handle negative sign at the beginning of numTwo
+      numTwo += selectedNum;
+      op = "";
+    } else if (numTwo !== "" || (numTwo === "" && selectedNum !== "-")) {
+      numTwo += selectedNum;
+    }
   }
   showHistory();
+  console.log(numOne);
+
+  console.log(op);
+
+  console.log(numTwo);
 };
 
 // event handler - operator
