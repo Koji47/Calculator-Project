@@ -13,12 +13,6 @@ let op = "";
 // let isZeroDisplayed: boolean = true;
 
 // generic
-// - let ts know the return type
-// const buttons = document.querySelectorAll<HTMLButtonElement>(".keypad__buttons");
-// const screen = document.querySelector<HTMLElement>(".screen__sum");
-// const output = document.querySelector<HTMLDivElement>(".screen__output");
-// const opButton = document.querySelector<HTMLButtonElement>(".keypad__op");
-
 //query selectors
 const numButton = document.querySelectorAll<HTMLButtonElement>(".keypad__num");
 const opButton = document.querySelectorAll<HTMLButtonElement>(".keypad__op");
@@ -27,6 +21,7 @@ const equalsButton =
 const clearButton = document.querySelector<HTMLButtonElement>(".keypad__clear");
 const deleteButton =
   document.querySelector<HTMLButtonElement>(".keypad__delete");
+const dotButton = document.querySelector<HTMLButtonElement>(".keypad__dot");
 const displayCalculation = document.querySelector<HTMLElement>(".screen__sum");
 const displayOutput = document.querySelector<HTMLElement>(".screen__output");
 
@@ -46,6 +41,9 @@ if (!clearButton) {
 if (!deleteButton) {
   throw new Error("delete error");
 }
+if (!dotButton) {
+  throw new Error("dot error");
+}
 if (!displayCalculation) {
   throw new Error("display error");
 }
@@ -62,7 +60,6 @@ const showHistory = () => {
 // functions - calculate given equation depending on op
 const calculateOutput = (numOne: number, op: string, numTwo: number) => {
   // console.log(numOne, op, numTwo);
-
   if (op === "+") {
     return numOne + numTwo;
   }
@@ -104,24 +101,44 @@ const handleOpButton = (button: HTMLButtonElement) => {
 // event handler - equals
 const handleEqualsButton = (button: HTMLButtonElement) => {
   let calculation = calculateOutput(Number(numOne), op, Number(numTwo));
-  displayCalculation.textContent = String(calculation);
+  displayOutput.textContent = String(calculation);
 };
+
 // event handler - clear
 const handleClearButton = () => {
   numOne = "";
   numTwo = "";
   op = "";
   displayCalculation.textContent = String("");
+  displayOutput.textContent = String("");
 };
 
+// event handler - dot
+const handleDotButton = () => {
+  const dot = ".";
+
+  if (op === "") {
+    if (!numOne.includes(dot)) {
+      numOne += dot;
+    }
+  } else {
+    if (!numTwo.includes(dot)) {
+      numTwo += dot;
+    }
+  }
+  showHistory();
+};
+
+// event listeners - for each (multiple buttons)
 numButton.forEach((button) => {
   button.addEventListener("click", (e: Event) => handleNumButton(button));
 });
 opButton.forEach((button) => {
   button.addEventListener("click", (e: Event) => handleOpButton(button));
 });
+// event listeners - singular buttons
 equalsButton.addEventListener("click", (e: Event) =>
   handleEqualsButton(equalsButton)
 );
 clearButton.addEventListener("click", (e: Event) => handleClearButton());
-// clearButton.addEventListener("click", (handleClearButton));
+dotButton.addEventListener("click", (e: Event) => handleDotButton());

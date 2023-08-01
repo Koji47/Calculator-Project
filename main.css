@@ -123,7 +123,14 @@
   border: 0px;
   outline: none;
   font-size: 32px;
+  text-align: right;
 }
+.screen__sum, .screen__output {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  max-width: 80vw;
+}
+
 * {
   font-family: "Chakra Petch", sans-serif;
   padding: 0px;
