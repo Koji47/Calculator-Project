@@ -5,6 +5,7 @@
   grid-template-areas: "clear divide multiply delete" "seven eight nine minus" "four five six plus" "one two three equals" "zero dot triple equals";
   width: 95vw;
   margin: 3vw;
+  margin-top: 3vh;
 }
 .keypad #clear {
   grid-area: clear;
@@ -92,8 +93,8 @@
   display: grid;
   grid-template-columns: 35vw 50vw 10vw;
   align-items: center;
-  margin-top: 3vh;
-  margin-bottom: 3vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 .navbar__calculator {
   grid-column-start: 2;
@@ -109,27 +110,19 @@
   grid-column-start: 3;
 }
 
-input {
-  text-align: right;
-  border: 0px;
-  outline: none;
-  background-color: #f2f2f2;
-  margin: 1rem;
-  font-size: 32px;
-  width: 80vw;
-}
-
 .screen {
   display: flex;
+  flex-direction: column;
   align-items: last baseline;
   justify-content: right;
   background-color: #f2f2f2;
   width: 90vw;
   margin: 5vw;
-  height: 25vh;
+  height: 27vh;
   border-radius: 5%/10%;
   border: 0px;
   outline: none;
+  font-size: 32px;
 }
 
 * {

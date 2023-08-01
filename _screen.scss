@@ -1,22 +1,27 @@
-input {
-  text-align: right;
-  border: 0px;
-  outline: none;
-  background-color: $white;
-  margin: 1rem;
-  font-size: 32px;
-  width: 80vw;
-}
+// .screen {
+//   text-align: right;
+//   border: 0px;
+//   outline: none;
+//   background-color: $white;
+//   margin: 2rem;
+//
+//   width: 80vw;
+// }
 
 .screen {
   display: flex;
+  flex-direction: column;
   align-items: last baseline;
   justify-content: right;
   background-color: $white;
   width: 90vw;
   margin: 5vw;
-  height: 25vh;
+  height: 27vh;
   border-radius: 5%/10%;
   border: 0px;
   outline: none;
+  font-size: 32px;
+
+  &__output {
+  }
 }

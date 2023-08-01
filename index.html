@@ -16,29 +16,39 @@
     </nav>
 
     <main>
-      <div class="screen"><input type="text" /></div>
+      <div class="screen">
+        <div class="screen__sum">sum</div>
+        <div class="screen__output">output</div>
+      </div>
     </main>
 
     <div class="keypad">
-      <button class="keypad__buttons" id="clear">C</button>
-      <button class="keypad__buttons" id="divide">%</button>
-      <button class="keypad__buttons" id="multiply">x</button>
-      <button class="keypad__buttons" id="delete">⌫</button>
-      <button class="keypad__buttons" id="seven">7</button>
-      <button class="keypad__buttons" id="eight">8</button>
-      <button class="keypad__buttons" id="nine">9</button>
-      <button class="keypad__buttons" id="minus">-</button>
-      <button class="keypad__buttons" id="four">4</button>
-      <button class="keypad__buttons" id="five">5</button>
-      <button class="keypad__buttons" id="six">6</button>
-      <button class="keypad__buttons" id="plus">+</button>
-      <button class="keypad__buttons" id="one">1</button>
-      <button class="keypad__buttons" id="two">2</button>
-      <button class="keypad__buttons" id="three">3</button>
-      <button class="keypad__buttons" id="zero">0</button>
-      <button class="keypad__buttons" id="dot">.</button>
-      <button class="keypad__buttons" id="triple">000</button>
-      <button class="keypad__buttons" id="equals">=</button>
+      <button class="keypad__buttons keypad__clear" id="clear">C</button>
+      <button class="keypad__buttons keypad__op" id="divide">%</button>
+      <button class="keypad__buttons keypad__op" id="multiply">x</button>
+      <button class="keypad__buttons keypad__delete" id="delete">⌫</button>
+      <button class="keypad__buttons keypad__num" id="seven" value="7">
+        7
+      </button>
+      <button class="keypad__buttons keypad__num" id="eight" value="8">
+        8
+      </button>
+      <button class="keypad__buttons keypad__num" id="nine" value="9">9</button>
+      <button class="keypad__buttons keypad__op" id="minus">-</button>
+      <button class="keypad__buttons keypad__num" id="four" value="4">4</button>
+      <button class="keypad__buttons keypad__num" id="five" value="5">5</button>
+      <button class="keypad__buttons keypad__num" id="six" value="6">6</button>
+      <button class="keypad__buttons keypad__op" id="plus">+</button>
+      <button class="keypad__buttons keypad__num" id="one" value="7">1</button>
+      <button class="keypad__buttons keypad__num" id="two" value="7">2</button>
+      <button class="keypad__buttons keypad__num" id="three" value="7">
+        3
+      </button>
+      <button class="keypad__buttons keypad__num" id="zero" value="7">0</button>
+      <button class="keypad__buttons keypad__op" id="dot">.</button>
+      <button class="keypad__buttons keypad__num" id="triple">000</button>
+      <button class="keypad__buttons keypad__equals" id="equals">=</button>
     </div>
   </body>
+  <script src="./src/main.ts"></script>
 </html>
