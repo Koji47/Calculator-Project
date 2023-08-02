@@ -7,10 +7,11 @@
 // let op: string[] = [];
 let numOne = "";
 let numTwo = "";
-let op = "";
+let numThree = "";
+let numFour = "";
+let numFive = "";
 
-// // calc state (display 0 on screen)
-// let isZeroDisplayed: boolean = true;
+let op = "";
 
 // generic
 //query selectors
@@ -24,6 +25,14 @@ const deleteButton =
 const dotButton = document.querySelector<HTMLButtonElement>(".keypad__dot");
 const displayCalculation = document.querySelector<HTMLElement>(".screen__sum");
 const displayOutput = document.querySelector<HTMLElement>(".screen__output");
+const lightDarkToggle =
+  document.querySelector<HTMLButtonElement>(".navbar__lightdark");
+const body = document.querySelector<HTMLElement>("body");
+const lightIMG = document.querySelector<HTMLImageElement>("#light");
+const darkIMG = document.querySelector<HTMLImageElement>("#dark");
+const screenSelector = document.querySelector<HTMLDivElement>(".screen");
+const keypadButtonSelector =
+  document.querySelectorAll<HTMLButtonElement>(".keypad__buttons");
 
 // error checks
 if (!numButton) {
@@ -48,7 +57,19 @@ if (!displayCalculation) {
   throw new Error("display error");
 }
 if (!displayOutput) {
-  throw new Error("display error");
+  throw new Error("display output error");
+}
+if (!lightDarkToggle) {
+  throw new Error("Light Dark error");
+}
+if (!body) {
+  throw new Error("body error");
+}
+if (!lightIMG || !darkIMG) {
+  throw new Error("light dark error");
+}
+if (!keypadButtonSelector) {
+  throw new Error("keypad selector error");
 }
 
 // functions - display the equation onto second screen
@@ -103,9 +124,7 @@ const handleNumButton = (button: HTMLButtonElement) => {
   }
   showHistory();
   console.log(numOne);
-
   console.log(op);
-
   console.log(numTwo);
 };
 
@@ -148,6 +167,29 @@ const handleDotButton = () => {
   showHistory();
 };
 
+const handleLightDarkToggle = () => {
+  console.log("toggling");
+  if (body.classList.contains("darkMode")) {
+    body.classList.remove("darkMode");
+    body.classList.add("lightMode");
+    console.log("dark to light");
+    lightIMG.classList.add("noDisplay");
+    lightIMG.classList.remove("Display");
+    darkIMG.classList.remove("noDisplay");
+    darkIMG.classList.add("Display");
+    keypadButtonSelector.classList.add("yellowButton");
+    keypadButtonSelector.forEach;
+  } else {
+    body.classList.remove("lightMode");
+    body.classList.add("darkMode");
+    console.log("light to dark");
+    lightIMG.classList.remove("noDisplay");
+    lightIMG.classList.add("Display");
+    darkIMG.classList.add("noDisplay");
+    darkIMG.classList.remove("Display");
+  }
+};
+
 // event listeners - for each (multiple buttons)
 numButton.forEach((button) => {
   button.addEventListener("click", (e: Event) => handleNumButton(button));
@@ -161,3 +203,4 @@ equalsButton.addEventListener("click", (e: Event) =>
 );
 clearButton.addEventListener("click", (e: Event) => handleClearButton());
 dotButton.addEventListener("click", (e: Event) => handleDotButton());
+lightDarkToggle.addEventListener("click", handleLightDarkToggle);

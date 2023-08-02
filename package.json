@@ -1,5 +1,7 @@
 {
   "name": "calculator-project",
+  "homepage": "https://Koji47.github.io/calculator-project",
+  "author": "Chu Lam",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +11,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "sass": "^1.64.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"

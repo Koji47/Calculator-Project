@@ -103,11 +103,37 @@
 .navbar__lightdark #dark {
   width: 50px;
   grid-column-start: 3;
-  display: none;
 }
 .navbar__lightdark #light {
   width: 50px;
   grid-column-start: 3;
+}
+
+button {
+  background-color: transparent;
+  width: 53px;
+  height: 50px;
+  border: none;
+}
+
+.lightMode {
+  background-color: #ffdb58;
+}
+
+.darkMode {
+  background-color: #7f7f7f;
+}
+
+.noDisplay {
+  display: none;
+}
+
+.Display {
+  display: unset;
+}
+
+.yellowButton {
+  background-color: #ffbf00;
 }
 
 .screen {

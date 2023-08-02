@@ -1,7 +1,7 @@
 @import "./variables";
 @import "./keypad";
 @import "./nav";
-
+@import "./lightdarkmode";
 @import "./screen";
 
 @import url("https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap");
@@ -16,8 +16,4 @@ a,
 ul,
 li {
   all: unset;
-}
-
-body {
-  background-color: $tertiary-gray;
 }

@@ -1,0 +1,19 @@
+.lightMode {
+  background-color: $yellowLight;
+}
+
+.darkMode {
+  background-color: $tertiary-gray;
+}
+
+.noDisplay {
+  display: none;
+}
+
+.Display {
+  display: unset;
+}
+
+.yellowButton {
+  background-color: $yellowDark;
+}
