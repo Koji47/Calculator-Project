@@ -15,5 +15,6 @@
 }
 
 .yellowButton {
-  background-color: $yellowDark;
+  background-color: $yellowLight;
+  box-shadow: 0 3px 10px $yellowDark;
 }

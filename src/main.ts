@@ -7,12 +7,8 @@
 // let op: string[] = [];
 let numOne = "";
 let numTwo = "";
-let numThree = "";
-let numFour = "";
-let numFive = "";
-
 let op = "";
-
+let negatives = [];
 // generic
 //query selectors
 const numButton = document.querySelectorAll<HTMLButtonElement>(".keypad__num");
@@ -103,7 +99,9 @@ const handleNumButton = (button: HTMLButtonElement) => {
   let selectedNum = button.innerText;
   console.log(selectedNum);
 
-  if (op === "") {
+  if (op === "-") {
+    numOne += selectedNum;
+  } else if (op === "") {
     // if numOne is empty and the selected number is "-"
     if (numOne === "" && selectedNum === "-") {
       // add the negative sign to the empty numOne
@@ -137,7 +135,7 @@ const handleOpButton = (button: HTMLButtonElement) => {
 };
 
 // event handler - equals
-const handleEqualsButton = (button: HTMLButtonElement) => {
+const handleEqualsButton = () => {
   let calculation = calculateOutput(Number(numOne), op, Number(numTwo));
   displayOutput.textContent = String(calculation);
 };
@@ -172,35 +170,36 @@ const handleLightDarkToggle = () => {
   if (body.classList.contains("darkMode")) {
     body.classList.remove("darkMode");
     body.classList.add("lightMode");
-    console.log("dark to light");
     lightIMG.classList.add("noDisplay");
     lightIMG.classList.remove("Display");
     darkIMG.classList.remove("noDisplay");
     darkIMG.classList.add("Display");
-    keypadButtonSelector.classList.add("yellowButton");
-    keypadButtonSelector.forEach;
+    // keypadButtonSelector.classList.add("yellowButton");
+    keypadButtonSelector.forEach((button) => {
+      button.classList.add("yellowButton");
+    });
   } else {
     body.classList.remove("lightMode");
     body.classList.add("darkMode");
-    console.log("light to dark");
     lightIMG.classList.remove("noDisplay");
     lightIMG.classList.add("Display");
     darkIMG.classList.add("noDisplay");
     darkIMG.classList.remove("Display");
+    keypadButtonSelector.forEach((button) => {
+      button.classList.remove("yellowButton");
+    });
   }
 };
 
 // event listeners - for each (multiple buttons)
 numButton.forEach((button) => {
-  button.addEventListener("click", (e: Event) => handleNumButton(button));
+  button.addEventListener("click", () => handleNumButton(button));
 });
 opButton.forEach((button) => {
-  button.addEventListener("click", (e: Event) => handleOpButton(button));
+  button.addEventListener("click", () => handleOpButton(button));
 });
 // event listeners - singular buttons
-equalsButton.addEventListener("click", (e: Event) =>
-  handleEqualsButton(equalsButton)
-);
-clearButton.addEventListener("click", (e: Event) => handleClearButton());
-dotButton.addEventListener("click", (e: Event) => handleDotButton());
+equalsButton.addEventListener("click", () => handleEqualsButton());
+clearButton.addEventListener("click", () => handleClearButton());
+dotButton.addEventListener("click", () => handleDotButton());
 lightDarkToggle.addEventListener("click", handleLightDarkToggle);
