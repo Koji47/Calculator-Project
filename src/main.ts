@@ -8,7 +8,8 @@
 let numOne = "";
 let numTwo = "";
 let op = "";
-let negatives = [];
+let negatives = "";
+
 // generic
 //query selectors
 const numButton = document.querySelectorAll<HTMLButtonElement>(".keypad__num");
@@ -99,8 +100,9 @@ const handleNumButton = (button: HTMLButtonElement) => {
   let selectedNum = button.innerText;
   console.log(selectedNum);
 
-  if (op === "-") {
+  if (op === "-" && selectedNum === "") {
     numOne += selectedNum;
+    return (op = "");
   } else if (op === "") {
     // if numOne is empty and the selected number is "-"
     if (numOne === "" && selectedNum === "-") {
@@ -165,6 +167,24 @@ const handleDotButton = () => {
   showHistory();
 };
 
+// event handler - dot
+const handleDeleteButton = () => {
+  if (op === "") {
+    console.log("delete");
+    if (numTwo !== "") {
+      numTwo = numTwo.slice(0, -1);
+    } else if (numOne !== "") {
+      numOne = numOne.slice(0, -1);
+    }
+  } else if (numTwo !== "") {
+    numTwo = numTwo.slice(0, -1);
+  } else {
+    op = "";
+  }
+
+  showHistory();
+};
+
 const handleLightDarkToggle = () => {
   console.log("toggling");
   if (body.classList.contains("darkMode")) {
@@ -202,4 +222,5 @@ opButton.forEach((button) => {
 equalsButton.addEventListener("click", () => handleEqualsButton());
 clearButton.addEventListener("click", () => handleClearButton());
 dotButton.addEventListener("click", () => handleDotButton());
+deleteButton.addEventListener("click", handleDeleteButton);
 lightDarkToggle.addEventListener("click", handleLightDarkToggle);
