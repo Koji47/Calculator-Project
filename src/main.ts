@@ -1,10 +1,4 @@
-// regex declarations - will continue to try and implement regex once basic calculator is finished
-// const opRegex = /x%+-/; //current wip operators
-// const numRegex = /\d/; //digits 0-9
-
-// arrays declared - will continue to try implement array once calculator is operational
-// let num: number[] = [];
-// let op: string[] = [];
+// global variables declared for use in functions
 let numOne = "";
 let numTwo = "";
 let op = "";
@@ -14,22 +8,18 @@ let negatives = "";
 //query selectors
 const numButton = document.querySelectorAll<HTMLButtonElement>(".keypad__num");
 const opButton = document.querySelectorAll<HTMLButtonElement>(".keypad__op");
-const equalsButton =
-  document.querySelector<HTMLButtonElement>(".keypad__equals");
+const equalsButton = document.querySelector<HTMLButtonElement>(".keypad__equals");
 const clearButton = document.querySelector<HTMLButtonElement>(".keypad__clear");
-const deleteButton =
-  document.querySelector<HTMLButtonElement>(".keypad__delete");
+const deleteButton = document.querySelector<HTMLButtonElement>(".keypad__delete");
 const dotButton = document.querySelector<HTMLButtonElement>(".keypad__dot");
 const displayCalculation = document.querySelector<HTMLElement>(".screen__sum");
 const displayOutput = document.querySelector<HTMLElement>(".screen__output");
-const lightDarkToggle =
-  document.querySelector<HTMLButtonElement>(".navbar__lightdark");
+const lightDarkToggle = document.querySelector<HTMLButtonElement>(".navbar__lightdark");
 const body = document.querySelector<HTMLElement>("body");
 const lightIMG = document.querySelector<HTMLImageElement>("#light");
 const darkIMG = document.querySelector<HTMLImageElement>("#dark");
 const screenSelector = document.querySelector<HTMLDivElement>(".screen");
-const keypadButtonSelector =
-  document.querySelectorAll<HTMLButtonElement>(".keypad__buttons");
+const keypadButtonSelector = document.querySelectorAll<HTMLButtonElement>(".keypad__buttons");
 
 // error checks
 if (!numButton) {
@@ -99,39 +89,44 @@ const calculateOutput = (numOne: number, op: string, numTwo: number) => {
 const handleNumButton = (button: HTMLButtonElement) => {
   let selectedNum = button.innerText;
   console.log(selectedNum);
-
-  if (op === "-" && selectedNum === "") {
-    numOne += selectedNum;
-    return (op = "");
-  } else if (op === "") {
-    // if numOne is empty and the selected number is "-"
-    if (numOne === "" && selectedNum === "-") {
-      // add the negative sign to the empty numOne
+  
+    if (op === "") {
       numOne += selectedNum;
-      op = "";
-    } else if (numOne !== "" || (numOne === "" && selectedNum !== "-")) {
-      numOne += selectedNum;
-    }
-  } else {
-    // if numTwo is empty and the selected number is "-"
-    if (numTwo === "" && selectedNum === "-") {
-      // Handle negative sign at the beginning of numTwo
-      numTwo += selectedNum;
-      op = "";
-    } else if (numTwo !== "" || (numTwo === "" && selectedNum !== "-")) {
+    } else {
       numTwo += selectedNum;
     }
-  }
   showHistory();
-  console.log(numOne);
-  console.log(op);
-  console.log(numTwo);
-};
+  // if (op === "-" && selectedNum === "") {                                 //attempt at fixing negatives 
+  //   numOne += selectedNum;
+  //   return (op = "");
+  // } else if (op === "") {
+  //   // if numOne is empty and the selected number is "-"
+  //   if (numOne === "" && selectedNum === "-") {
+  //     // add the negative sign to the empty numOne
+  //     numOne += selectedNum;
+  //     op = "";
+  //   } else if (numOne !== "" || (numOne === "" && selectedNum !== "-")) {
+  //     numOne += selectedNum;
+  //   }
+  // } else {
+  //   // if numTwo is empty and the selected number is "-"
+  //   if (numTwo === "" && selectedNum === "-") {
+  //     // Handle negative sign at the beginning of numTwo
+  //     numTwo += selectedNum;
+  //     op = "";
+  //   } else if (numTwo !== "" || (numTwo === "" && selectedNum !== "-")) {
+  //     numTwo += selectedNum;
+  //   }
 
+  }
 // event handler - operator
 const handleOpButton = (button: HTMLButtonElement) => {
   const selectedOp = button.innerText;
   op = selectedOp;
+  // if (numOne === "-" && numTwo === "") {                                   //attempt at fixing negatives 
+  //   op = selectedOp;
+  //   return;
+  // }
   console.log(selectedOp);
   showHistory();
 };
@@ -154,7 +149,6 @@ const handleClearButton = () => {
 // event handler - dot
 const handleDotButton = () => {
   const dot = ".";
-
   if (op === "") {
     if (!numOne.includes(dot)) {
       numOne += dot;
@@ -170,7 +164,6 @@ const handleDotButton = () => {
 // event handler - dot
 const handleDeleteButton = () => {
   if (op === "") {
-    console.log("delete");
     if (numTwo !== "") {
       numTwo = numTwo.slice(0, -1);
     } else if (numOne !== "") {
@@ -181,30 +174,28 @@ const handleDeleteButton = () => {
   } else {
     op = "";
   }
-
   showHistory();
 };
 
 const handleLightDarkToggle = () => {
   console.log("toggling");
-  if (body.classList.contains("darkMode")) {
-    body.classList.remove("darkMode");
-    body.classList.add("lightMode");
-    lightIMG.classList.add("noDisplay");
+  if (body.classList.contains("darkMode")) {            //checks if already in dark mode
+    body.classList.remove("darkMode");                  //removes tags associated to dark mode
     lightIMG.classList.remove("Display");
     darkIMG.classList.remove("noDisplay");
+    body.classList.add("lightMode");                    //adds tags associated to light mode
+    lightIMG.classList.add("noDisplay");
     darkIMG.classList.add("Display");
-    // keypadButtonSelector.classList.add("yellowButton");
     keypadButtonSelector.forEach((button) => {
       button.classList.add("yellowButton");
     });
-  } else {
-    body.classList.remove("lightMode");
-    body.classList.add("darkMode");
+  } else {                                              //else - already in light mode...
+    body.classList.remove("lightMode");                 //removes tags associated to light mode
     lightIMG.classList.remove("noDisplay");
+    darkIMG.classList.remove("Display");
+    body.classList.add("darkMode");                     //adds tags associated to dark mode
     lightIMG.classList.add("Display");
     darkIMG.classList.add("noDisplay");
-    darkIMG.classList.remove("Display");
     keypadButtonSelector.forEach((button) => {
       button.classList.remove("yellowButton");
     });
@@ -212,12 +203,8 @@ const handleLightDarkToggle = () => {
 };
 
 // event listeners - for each (multiple buttons)
-numButton.forEach((button) => {
-  button.addEventListener("click", () => handleNumButton(button));
-});
-opButton.forEach((button) => {
-  button.addEventListener("click", () => handleOpButton(button));
-});
+numButton.forEach((button) => {button.addEventListener("click", () => handleNumButton(button));});
+opButton.forEach((button) => {button.addEventListener("click", () => handleOpButton(button));});
 // event listeners - singular buttons
 equalsButton.addEventListener("click", () => handleEqualsButton());
 clearButton.addEventListener("click", () => handleClearButton());

@@ -12,21 +12,17 @@
     #dark {
       width: 50px;
       grid-column-start: 3;
-      //   display: none;
     }
     #light {
       width: 50px;
       grid-column-start: 3;
-      //   display: none;
     }
+    background-color: transparent;
+    width: 53px;
+    height: 50px;
+    border: none;
   }
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
 
-button {
-  background-color: transparent;
-  width: 53px;
-  height: 50px;
-  border: none;
-}
