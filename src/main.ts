@@ -67,7 +67,6 @@ const showHistory = () => {
 
 // functions - calculate given equation depending on op
 const calculateOutput = (numOne: number, op: string, numTwo: number) => {
-  // console.log(numOne, op, numTwo);
   if (op === "+") {
     return numOne + numTwo;
   }
@@ -88,7 +87,6 @@ const calculateOutput = (numOne: number, op: string, numTwo: number) => {
 // event handler - numbers
 const handleNumButton = (button: HTMLButtonElement) => {
   let selectedNum = button.innerText;
-  console.log(selectedNum);
   
     if (op === "") {
       numOne += selectedNum;
@@ -127,7 +125,6 @@ const handleOpButton = (button: HTMLButtonElement) => {
   //   op = selectedOp;
   //   return;
   // }
-  console.log(selectedOp);
   showHistory();
 };
 
@@ -178,7 +175,6 @@ const handleDeleteButton = () => {
 };
 
 const handleLightDarkToggle = () => {
-  console.log("toggling");
   if (body.classList.contains("darkMode")) {            //checks if already in dark mode
     body.classList.remove("darkMode");                  //removes tags associated to dark mode
     lightIMG.classList.remove("Display");
