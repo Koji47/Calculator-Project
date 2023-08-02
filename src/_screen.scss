@@ -27,3 +27,8 @@ main{
   justify-content: center;
   max-height: 380px;
 }
+
+@media screen and (min-height: 1024px) {
+  main{
+    max-height: 420px;
+  }}
