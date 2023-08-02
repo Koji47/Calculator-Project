@@ -104,9 +104,9 @@
 }
 .navbar__lightdark {
   background-color: transparent;
+  border: none;
   width: 53px;
   height: 50px;
-  border: none;
 }
 .navbar__lightdark #dark {
   width: 50px;
