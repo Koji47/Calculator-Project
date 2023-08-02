@@ -206,4 +206,5 @@ equalsButton.addEventListener("click", () => handleEqualsButton());
 clearButton.addEventListener("click", () => handleClearButton());
 dotButton.addEventListener("click", () => handleDotButton());
 deleteButton.addEventListener("click", handleDeleteButton);
+deleteButton.addEventListener("click", handleEqualsButton);
 lightDarkToggle.addEventListener("click", handleLightDarkToggle);
