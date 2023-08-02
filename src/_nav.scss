@@ -1,11 +1,13 @@
 .navbar {
   display: grid;
-  grid-template-columns: 35vw 50vw 10vw;
+  grid-template-columns: 125px 250px 50px;
   align-items: center;
+  justify-content: center;
 
   &__calculator {
     grid-column-start: 2;
     font-size: 28px;
+    margin-left: 30px;
   }
 
   &__lightdark {

@@ -6,6 +6,7 @@
   width: 95vw;
   margin: 3vw;
   margin-top: 3vh;
+  justify-content: center;
 }
 .keypad #clear {
   grid-area: clear;
@@ -91,14 +92,16 @@
 
 .navbar {
   display: grid;
-  grid-template-columns: 35vw 50vw 10vw;
+  grid-template-columns: 125px 250px 50px;
   align-items: center;
+  justify-content: center;
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
 .navbar__calculator {
   grid-column-start: 2;
   font-size: 28px;
+  margin-left: 30px;
 }
 .navbar__lightdark {
   background-color: transparent;
@@ -144,8 +147,9 @@
   justify-content: right;
   background-color: #f2f2f2;
   width: 90vw;
-  margin: 5vw;
+  max-width: 500px;
   height: 27vh;
+  margin: 5vw;
   border-radius: 5%/10%;
   border: 0px;
   outline: none;
@@ -156,6 +160,12 @@
   margin-top: 1rem;
   margin-right: 1rem;
   max-width: 80vw;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  max-height: 380px;
 }
 
 * {
